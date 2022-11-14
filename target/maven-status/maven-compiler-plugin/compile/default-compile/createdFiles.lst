@@ -1,0 +1,8 @@
+com\yellowhouse\startuppostgressdocker\controller\ResouceNotFoundException.class
+com\yellowhouse\startuppostgressdocker\model\Clothes.class
+com\yellowhouse\startuppostgressdocker\model\ClothesAudit.class
+com\yellowhouse\startuppostgressdocker\model\Ids.class
+com\yellowhouse\startuppostgressdocker\repository\ClothesRepository.class
+com\yellowhouse\startuppostgressdocker\model\AuditorAwareImpl.class
+com\yellowhouse\startuppostgressdocker\StartupPostgressDockerApplication.class
+com\yellowhouse\startuppostgressdocker\controller\ClothesController.class
