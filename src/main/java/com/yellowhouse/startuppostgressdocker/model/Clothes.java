@@ -6,27 +6,28 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="clothes")
 public class Clothes extends ClothesAudit {
 
     @Id
-    @Column(name="ROWID")
+    @Column(name="ROWID",unique=true,nullable=false)
+    @GeneratedValue
     private UUID id;
-
     private String type;
     private String name;
     private int size;
     private int price;
     private boolean inCapsula;
     private int wear;
-    private List<Ids> capsulesIds;
+    private UUID capsulesIds;
     private int status;
     private int coolKoef;
 }
