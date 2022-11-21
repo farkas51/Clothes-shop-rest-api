@@ -1,7 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.controller;
 
 import com.yellowhouse.startuppostgressdocker.model.Clothes;
-import com.yellowhouse.startuppostgressdocker.repository.ClothesRepository;
+import com.yellowhouse.startuppostgressdocker.service.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,36 +10,37 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/clothes")
 public class ClothesController {
 
     @Autowired
-    public ClothesRepository clothesRepository;
+    public ClothesService clothesService;
 
-    @PostMapping(value = "/clothes")
-    public Clothes addClothes(@RequestBody Clothes clothes){
-        return clothesRepository.save(clothes);
+    @PostMapping
+    public ResponseEntity<Clothes> addClothes(@RequestBody Clothes clothes){
+        clothesService.createClothes(clothes);
+        return ResponseEntity.ok().body(clothes);
     }
 
-    @GetMapping(value = "/clothes")
+    @GetMapping
     public ResponseEntity<List<Clothes>> findAll(){
-       return ResponseEntity.ok(clothesRepository.findAll());
+       return ResponseEntity.ok(clothesService.readAllClothes());
     }
 
-
-    @GetMapping("/clothes/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Clothes> findClothesById(@PathVariable(value = "id") UUID clothesId) {
-        Clothes clothes = clothesRepository.findById(clothesId).orElseThrow(
-                () -> new ResouceNotFoundException("Clothes not found" + clothesId));
+        Clothes clothes = clothesService.readClotheById(clothesId);
         return ResponseEntity.ok().body(clothes);
     }
 
 
-    @DeleteMapping("/clothes/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteClothes(@PathVariable(value = "id") UUID clothesId) {
-        Clothes clothes = clothesRepository.findById(clothesId).orElseThrow(
-                () -> new ResouceNotFoundException("Employee not found" + clothesId));
-        clothesRepository.delete(clothes);
-        return ResponseEntity.ok().build();
+        boolean flag = false;
+        if (clothesService.deleteClothesById(clothesId) == true) {
+            return ResponseEntity.ok().build();
+        } else{
+            return ResponseEntity.notFound().build();
+        }
     }
-
 }

@@ -1,8 +1,11 @@
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\controller\ResouceNotFoundException.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\StartupPostgressDockerApplication.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\controller\ClothesController.java
+C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\repository\CapsulesRepository.java
+C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\Capsules.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\ClothesAudit.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\repository\ClothesRepository.java
-C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\Ids.java
+C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\CapsulesAudit.java
+C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\controller\CapsulesController.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\Clothes.java
 C:\Users\kolia\IdeaProjects\startup-postgress-docker\src\main\java\com\yellowhouse\startuppostgressdocker\model\AuditorAwareImpl.java
