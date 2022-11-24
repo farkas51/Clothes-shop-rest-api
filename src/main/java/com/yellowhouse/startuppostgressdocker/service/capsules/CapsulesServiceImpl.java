@@ -1,9 +1,8 @@
-package com.yellowhouse.startuppostgressdocker.service;
+package com.yellowhouse.startuppostgressdocker.service.capsules;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.model.Capsules;
-import com.yellowhouse.startuppostgressdocker.model.Clothes;
-import com.yellowhouse.startuppostgressdocker.repository.CapsulesRepository;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.repository.capsules.CapsulesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import java.util.UUID;
 
 @Service
 @Slf4j
-public class CapsulesServiceImpl implements CapsulesService{
+public class CapsulesServiceImpl implements CapsulesService {
 
     @Autowired
     public CapsulesRepository capsulesRepository;
@@ -41,7 +40,7 @@ public class CapsulesServiceImpl implements CapsulesService{
     }
 
     @Override
-    public boolean deleteClothesById(UUID capsuleId) throws ResourceNotFoundException{
+    public boolean deleteClothesById(UUID capsuleId) throws ResourceNotFoundException {
         boolean flag = false;
         try {
             capsulesRepository.deleteById(capsuleId);
@@ -51,6 +50,6 @@ public class CapsulesServiceImpl implements CapsulesService{
         }
 
         log.info("Удалена капсула " + capsuleId);
-        return  flag = true;
+        return flag = true;
     }
 }

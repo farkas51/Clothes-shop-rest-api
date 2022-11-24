@@ -1,6 +1,6 @@
-package com.yellowhouse.startuppostgressdocker.service;
+package com.yellowhouse.startuppostgressdocker.service.clothes;
 
-import com.yellowhouse.startuppostgressdocker.model.Clothes;
+import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,6 +9,7 @@ public interface ClothesService {
 
     /**
      * Создает новую запись о вещи
+     *
      * @param clothes - вещь для создания
      */
 
@@ -17,12 +18,14 @@ public interface ClothesService {
 
     /**
      * Возвращает список всех имеющихся вещей
+     *
      * @return список вещей
      */
     List<Clothes> readAllClothes();
 
     /**
      * Возвращает вещь по её ID
+     *
      * @param id - ID вещи
      * @return - объект вещи с заданным ID
      */
@@ -30,6 +33,7 @@ public interface ClothesService {
 
     /**
      * Удаляет вещь с заданным ID
+     *
      * @param id - id вещи, которую нужно удалить
      * @return - true если вещь была удалена, иначе false
      */

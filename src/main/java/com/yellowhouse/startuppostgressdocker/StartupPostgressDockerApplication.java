@@ -10,14 +10,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class StartupPostgressDockerApplication {
-	@Bean
-	public AuditorAware<String> auditorAware(){
+    @Bean
+    public AuditorAware<String> auditorAware() {
 
-		return new AuditorAwareImpl();
-	}
+        return new AuditorAwareImpl();
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(StartupPostgressDockerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(StartupPostgressDockerApplication.class, args);
+    }
 
 }

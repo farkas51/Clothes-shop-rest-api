@@ -1,7 +1,8 @@
-package com.yellowhouse.startuppostgressdocker.model;
+package com.yellowhouse.startuppostgressdocker.model.capsules;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,13 +16,13 @@ import java.util.UUID;
 @ToString(exclude = "clothesInCapsula")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="capsules")
+@Table(name = "capsules")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 public class Capsules extends CapsulesAudit {
     @Id
-    @Column(name="ID",unique=true,nullable=false)
+    @Column(name = "ID", unique = true, nullable = false)
     @GeneratedValue
     private UUID id;
     private String type;

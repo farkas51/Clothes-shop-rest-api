@@ -1,8 +1,8 @@
-package com.yellowhouse.startuppostgressdocker.service;
+package com.yellowhouse.startuppostgressdocker.service.clothes;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.model.Clothes;
-import com.yellowhouse.startuppostgressdocker.repository.ClothesRepository;
+import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
+import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +50,7 @@ public class ClothesServiceImpl implements ClothesService {
         }
 
         log.info("Удалена вещь " + clothesId);
-        return  flag = true;
+        return flag = true;
     }
 //
 //

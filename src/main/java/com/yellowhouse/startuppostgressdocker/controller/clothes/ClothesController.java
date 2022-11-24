@@ -1,7 +1,7 @@
-package com.yellowhouse.startuppostgressdocker.controller;
+package com.yellowhouse.startuppostgressdocker.controller.clothes;
 
-import com.yellowhouse.startuppostgressdocker.model.Clothes;
-import com.yellowhouse.startuppostgressdocker.service.ClothesService;
+import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
+import com.yellowhouse.startuppostgressdocker.service.clothes.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +17,14 @@ public class ClothesController {
     public ClothesService clothesService;
 
     @PostMapping
-    public ResponseEntity<Clothes> addClothes(@RequestBody Clothes clothes){
+    public ResponseEntity<Clothes> addClothes(@RequestBody Clothes clothes) {
         clothesService.createClothes(clothes);
         return ResponseEntity.ok().body(clothes);
     }
 
     @GetMapping
-    public ResponseEntity<List<Clothes>> findAll(){
-       return ResponseEntity.ok(clothesService.readAllClothes());
+    public ResponseEntity<List<Clothes>> findAll() {
+        return ResponseEntity.ok(clothesService.readAllClothes());
     }
 
     @GetMapping("/{id}")
@@ -37,9 +37,9 @@ public class ClothesController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteClothes(@PathVariable(value = "id") UUID clothesId) {
         boolean flag = false;
-        if (clothesService.deleteClothesById(clothesId) == true) {
+        if (clothesService.deleteClothesById(clothesId)) {
             return ResponseEntity.ok().build();
-        } else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
