@@ -5,34 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="testable app with crud for clothes and capsules&#10;based on services">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/users/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/users/UsersAudit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/users/UsersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/users/UsersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/users/UsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/SwaggerConfig2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/CapsulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/ClothesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/clothes/ClothesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/Capsules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/capsules/Capsules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/CapsulesAudit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/capsules/CapsulesAudit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/Clothes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/clothes/Clothes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/ClothesAudit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/clothes/ClothesAudit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/CapsulesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/ClothesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/clothes/ClothesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/CapsulesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/CapsulesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/ClothesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/ClothesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/controller/ClothesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/model/AuditorAwareImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/model/AuditorAwareImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/model/Clothes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/model/ClothesAudit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yellowhouse/startuppostgressdocker/repository/ClothesRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669052494395</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="testable app with crud for clothes and capsules&#10;based on services">
+      <created>1669315501968</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669315501968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
