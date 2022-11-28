@@ -38,4 +38,13 @@ public interface CapsulesService {
      */
     boolean deleteClothesById(UUID capsuleId);
 
+    /**
+     * Обновляет капсулу с заданным ID,
+     * в соответствии с переданной капсулой
+     *
+     * @param capsules - капсула в соответсвии с которой нужно обновить данные
+     * @param id       - id капсулы которую нужно обновить
+     */
+    void update(Capsules capsules, UUID id);
+
 }

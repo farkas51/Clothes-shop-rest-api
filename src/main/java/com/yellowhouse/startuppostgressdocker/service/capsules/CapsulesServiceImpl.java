@@ -52,4 +52,15 @@ public class CapsulesServiceImpl implements CapsulesService {
         log.info("Удалена капсула " + capsuleId);
         return flag = true;
     }
+
+    @Override
+    public void update(Capsules capsules, UUID id) {
+        try {
+            capsulesRepository.findById(id);
+            capsulesRepository.save(capsules);
+        } catch (Exception e) {
+            log.info("Капсула не найдена");
+            throw new ResourceNotFoundException("Capsules not found" + id);
+        }
+    }
 }

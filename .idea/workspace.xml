@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="testable app with crud for clothes and capsules&#10;based on services">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/SwaggerConfig2.java" afterDir="false" />
+    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="swagger added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/CapsulesResponseConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/CapsulesResponseConverterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/ClothesResponseConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/ClothesResponseConverterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/capsules/CapsulesResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/clothes/ClothesResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/clothes/ClothesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/clothes/ClothesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669315501968</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="swagger added">
+      <created>1669468321911</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669468321911</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +194,16 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="fixes" />
     <MESSAGE value="testable app with crud for clothes and capsules&#10;based on services" />
-    <option name="LAST_COMMIT_MESSAGE" value="testable app with crud for clothes and capsules&#10;based on services" />
+    <MESSAGE value="swagger added" />
+    <option name="LAST_COMMIT_MESSAGE" value="swagger added" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.clothes.Clothes" memberName="wear" />
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.clothes.Clothes" memberName="size" />
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.capsules.Capsules" memberName="id" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

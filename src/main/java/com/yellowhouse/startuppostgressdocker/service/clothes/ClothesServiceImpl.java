@@ -52,6 +52,18 @@ public class ClothesServiceImpl implements ClothesService {
         log.info("Удалена вещь " + clothesId);
         return flag = true;
     }
+
+    @Override
+    public void update(Clothes clothes, UUID id) {
+        try {
+            clothesRepository.findById(id);
+            clothesRepository.save(clothes);
+        } catch (Exception e) {
+            log.info("Вещь не найдена");
+            throw new ResourceNotFoundException("Clothes not found" + id);
+        }
+    }
+
 //
 //
 //    @Override

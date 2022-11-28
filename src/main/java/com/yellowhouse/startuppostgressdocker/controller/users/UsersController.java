@@ -46,8 +46,8 @@ public class UsersController {
 
     @GetMapping("/registered")
     public ResponseEntity<Boolean> isUserRegistered(@RequestParam(value = "email") String email,
-                                                    @RequestParam(value = "phoneNumber") String phoneNumber){
-        if(usersService.isRegistered(email,phoneNumber))
+                                                    @RequestParam(value = "phoneNumber") String phoneNumber) {
+        if (usersService.isRegistered(email, phoneNumber))
             return ResponseEntity.ok(Boolean.TRUE);
         else return ResponseEntity.ok(Boolean.FALSE);
     }

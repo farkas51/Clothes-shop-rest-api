@@ -38,15 +38,15 @@ public interface ClothesService {
      * @return - true если вещь была удалена, иначе false
      */
     boolean deleteClothesById(UUID id);
-//
-//    /**
-//     * Обновляет вещь с заданным ID,
-//     * в соответствии с переданной вещью
-//     * @param clothes - вещь в соответсвии с которой нужно обновить данные
-//     * @param id - id вещи которого нужно обновить
-//     * @return - true если данные были обновлены, иначе false
-//     */
-//    boolean update(Clothes clothes, UUID id);
-//
+
+    /**
+     * Обновляет вещь с заданным ID,
+     * в соответствии с переданной вещью
+     *
+     * @param clothes - вещь в соответсвии с которой нужно обновить данные
+     * @param id      - id вещи которого нужно обновить
+     */
+    void update(Clothes clothes, UUID id);
+
 
 }

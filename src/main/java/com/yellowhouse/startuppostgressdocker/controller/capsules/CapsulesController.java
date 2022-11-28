@@ -1,6 +1,8 @@
 package com.yellowhouse.startuppostgressdocker.controller.capsules;
 
+import com.yellowhouse.startuppostgressdocker.converter.CapsulesResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.model.capsules.CapsulesResponse;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.repository.capsules.CapsulesRepository;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
@@ -12,10 +14,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/capsules")
 public class CapsulesController {
+
+    @Autowired
+    public CapsulesResponseConverter converter;
     @Autowired
     public CapsulesRepository capsulesRepository;
 
@@ -27,22 +33,27 @@ public class CapsulesController {
     @Autowired
     public ClothesService clothesService;
 
+
     @PostMapping()
-    public ResponseEntity<Capsules> addCapsules(@RequestBody Capsules capsules) {
+    public CapsulesResponse addCapsules(@RequestBody Capsules capsules) {
         capsulesService.createCapsule(capsules);
-        return ResponseEntity.ok().body(capsules);
+        return converter.convert(capsules);
     }
 
     @GetMapping()
-    public ResponseEntity<List<Capsules>> findAll() {
-        return ResponseEntity.ok(capsulesService.readAllCapsules());
+    public List<CapsulesResponse> findAll() {
+        List<CapsulesResponse> capsulesResponses = capsulesService.readAllCapsules().stream()
+                .map(capsules -> converter.convert(capsules))
+                .collect(Collectors.toList());
+        return capsulesResponses;
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Capsules> findCapsulesById(@PathVariable(value = "id") UUID capsulesId) {
+    public CapsulesResponse findCapsulesById(@PathVariable(value = "id") UUID capsulesId) {
         Capsules capsules = capsulesService.readCapsulesById(capsulesId);
-        return ResponseEntity.ok().body(capsules);
+        CapsulesResponse response = converter.convert(capsules);
+        return response;
     }
 
 
@@ -57,16 +68,16 @@ public class CapsulesController {
 
 
     @GetMapping("/clothes")
-    public Capsules putClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId
+    public void putClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId
             , @RequestParam(value = "clothesId") UUID clothesId) {
-        Capsules capsules = capsulesRepository.findById(capsuleId).get();
-        Clothes clothes = clothesRepository.findById(clothesId).get();
+        Capsules capsules = capsulesService.readCapsulesById(capsuleId);
+        Clothes clothes = clothesService.readClotheById(clothesId);
         if (!clothes.isInCapsula()) {
             clothes.setInCapsula(true);
-            clothesRepository.save(clothes);
+            clothesService.update(clothes, clothesId);
         }
         capsules.addClothesToCapsule(clothes);
-        return capsulesRepository.save(capsules);
+        capsulesService.update(capsules, capsuleId);
     }
 
 }
