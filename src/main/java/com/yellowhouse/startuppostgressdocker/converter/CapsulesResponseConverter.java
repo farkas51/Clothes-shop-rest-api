@@ -1,7 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.converter;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
-import com.yellowhouse.startuppostgressdocker.model.capsules.CapsulesResponse;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
+import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
 
 public interface CapsulesResponseConverter {
 
@@ -11,5 +11,5 @@ public interface CapsulesResponseConverter {
      * @param source - исходный ответ капсулы
      */
 
-    CapsulesResponse convert(Capsules source);
+    CapsuleResponse convert(Capsule source);
 }

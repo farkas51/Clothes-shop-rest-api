@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class CapsulesResponse {
+public class CapsuleResponse {
 
     private UUID id;
     private String type;

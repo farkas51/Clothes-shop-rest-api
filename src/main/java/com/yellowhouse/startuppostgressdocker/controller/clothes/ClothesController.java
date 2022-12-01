@@ -53,4 +53,20 @@ public class ClothesController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/clothes-in-status/{status}")
+    public List<ClothesResponse> findClothesInStatus(@PathVariable(value = "status") Integer status) {
+        List<ClothesResponse> clothesList = clothesService.findByStatus(status).stream()
+                .map(clothes -> converter.convert(clothes))
+                .collect(Collectors.toList());
+        return clothesList;
+    }
+
+    @GetMapping("/clothes-in-capsula")
+    public List<ClothesResponse> findClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId){
+        List<ClothesResponse> clothesList = clothesService.getClothesWhereCapsules(capsuleId).stream()
+                .map(clothes -> converter.convert(clothes))
+                .collect(Collectors.toList());
+        return clothesList;
+    }
 }

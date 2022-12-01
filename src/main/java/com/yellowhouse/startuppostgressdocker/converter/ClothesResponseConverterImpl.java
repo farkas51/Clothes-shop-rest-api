@@ -1,6 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.converter;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ public class ClothesResponseConverterImpl implements ClothesResponseConverter {
                 .coolKoef(source.getCoolKoef())
                 .inCapsula(source.isInCapsula())
                 .capsulesWereThisClothesIds(
-                        source.getCapsules().stream().map(Capsules::getId).collect(Collectors.toSet())
+                        source.getCapsules().stream().map(Capsule::getId).collect(Collectors.toSet())
                 )
                 .build();
     }

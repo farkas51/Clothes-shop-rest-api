@@ -20,7 +20,7 @@ import java.util.UUID;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Capsules extends CapsulesAudit {
+public class Capsule extends CapsuleAudit {
     @Id
     @Column(name = "ID", unique = true, nullable = false)
     @GeneratedValue

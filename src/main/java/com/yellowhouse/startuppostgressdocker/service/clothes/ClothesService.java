@@ -1,6 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.service.clothes;
 
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
+import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
 
 import java.util.List;
 import java.util.UUID;
@@ -48,5 +49,20 @@ public interface ClothesService {
      */
     void update(Clothes clothes, UUID id);
 
+    /**
+     * Получает список вещей в заданном статусе,
+     *
+     * @param status - статус вещи
+     * @return - список вещей в заданном status
+     */
+    List<Clothes> findByStatus(Integer status);
+
+    /**
+     * Возвращает список вещей которые входят в определённую капсулу,
+     *
+     * @param capsuleId - капсула, в которой содержатся вещи
+     * @return - список вещей в заданном status
+     */
+    List<Clothes> getClothesWhereCapsules(UUID capsuleId);
 
 }

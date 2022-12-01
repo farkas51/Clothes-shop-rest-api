@@ -1,7 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.converter;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
-import com.yellowhouse.startuppostgressdocker.model.capsules.CapsulesResponse;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
+import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 public class CapsulesResponseConverterImpl implements CapsulesResponseConverter {
 
     @Override
-    public CapsulesResponse convert(Capsules source) {
+    public CapsuleResponse convert(Capsule source) {
 
-        return CapsulesResponse.builder()
+        return CapsuleResponse.builder()
                 .id(source.getId())
                 .size(source.getSize())
                 .price(source.getPrice())

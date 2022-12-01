@@ -2,6 +2,7 @@ package com.yellowhouse.startuppostgressdocker.service.clothes;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
+import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,28 +55,26 @@ public class ClothesServiceImpl implements ClothesService {
     }
 
     @Override
-    public void update(Clothes clothes, UUID id) {
+    public void update(Clothes clothes, UUID clothesId) {
         try {
-            clothesRepository.findById(id);
+            clothesRepository.findById(clothesId);
             clothesRepository.save(clothes);
         } catch (Exception e) {
             log.info("Вещь не найдена");
-            throw new ResourceNotFoundException("Clothes not found" + id);
+            throw new ResourceNotFoundException("Clothes not found" + clothesId);
         }
     }
 
-//
-//
-//    @Override
-//    public boolean update(Clothes clothes, UUID id) {
-//        if (CLOTHES_REPOSITORY_MAP.containsKey(id)) {
-//            clothes.setId(id);
-//            CLOTHES_REPOSITORY_MAP.put(id, clothes);
-//            return true;
-//        }
-//
-//        return false;
-//    }
-//
+    @Override
+    public List<Clothes> findByStatus(Integer status) {
+       return clothesRepository.getByStatus(status);
+    }
+
+    @Override
+    public List<Clothes> getClothesWhereCapsules(UUID capsuleId) {
+        List<Clothes> clothes = clothesRepository.findByCapsules_id(capsuleId);
+        return clothes;
+    }
+
 
 }

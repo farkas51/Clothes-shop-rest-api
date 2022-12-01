@@ -2,7 +2,7 @@ package com.yellowhouse.startuppostgressdocker.model.clothes;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 import lombok.*;
 
 import javax.persistence.*;
@@ -39,6 +39,6 @@ public class Clothes extends ClothesAudit {
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "clothesInCapsula")
-    private Set<Capsules> capsules = new HashSet<>();
+    private Set<Capsule> capsules = new HashSet<>();
 
 }
