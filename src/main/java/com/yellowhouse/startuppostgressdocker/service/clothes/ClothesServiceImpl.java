@@ -3,14 +3,16 @@ package com.yellowhouse.startuppostgressdocker.service.clothes;
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
+import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.lang.reflect.Field;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -74,6 +76,29 @@ public class ClothesServiceImpl implements ClothesService {
     public List<Clothes> getClothesWhereCapsules(UUID capsuleId) {
         List<Clothes> clothes = clothesRepository.findByCapsules_id(capsuleId);
         return clothes;
+    }
+
+    @Override
+    public Clothes patch(UUID clothesId, Map<Object, Object> fields) {
+        Optional<Clothes> clothes = clothesRepository.findById(clothesId);
+        if (clothes.isPresent()){
+            fields.forEach((key,value) ->{
+                Field field = ReflectionUtils.findField(Clothes.class, key.toString());
+                field.setAccessible(true);
+                if (field.getType().equals(UUID.class)){
+                    ReflectionUtils.setField(field,clothes.get(),UUID.fromString(value.toString()));
+                } else if (field.getType().equals(int.class)) {
+                    ReflectionUtils.setField(field,clothes.get(),Integer.valueOf(value.toString()));
+                } else if (field.getType().equals(LocalDateTime.class)) {
+                    ReflectionUtils.setField(field,clothes.get(), LocalDateTime.parse(value.toString()));
+
+                }
+            });
+            Clothes updatedClothes = clothesRepository.save(clothes.get());
+            return updatedClothes;
+        } else {
+            throw new ResourceNotFoundException("Запись с вещью по заданному id не найдена");
+        }
     }
 
 

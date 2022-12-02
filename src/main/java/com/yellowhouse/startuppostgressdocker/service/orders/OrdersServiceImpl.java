@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Slf4j
@@ -80,6 +81,9 @@ public class OrdersServiceImpl implements OrdersService{
                     ReflectionUtils.setField(field,order.get(),UUID.fromString(value.toString()));
                 } else if (field.getType().equals(int.class)) {
                     ReflectionUtils.setField(field,order.get(),Integer.valueOf(value.toString()));
+                } else if (field.getType().equals(LocalDateTime.class)) {
+                    ReflectionUtils.setField(field,order.get(), LocalDateTime.parse(value.toString()));
+
                 }
             });
             Order updatedOrder = ordersRepository.save(order.get());
@@ -87,6 +91,12 @@ public class OrdersServiceImpl implements OrdersService{
         } else {
             throw new ResourceNotFoundException("Запись с заказом по заданному id не найдена");
         }
+    }
+
+    @Override
+    public List<Order> readOrderByUserId(UUID userId) {
+        List<Order> orderList = ordersRepository.findByUserId(userId);
+        return orderList;
     }
 
 }

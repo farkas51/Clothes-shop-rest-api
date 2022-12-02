@@ -45,4 +45,6 @@ public interface UsersService {
      * @return - true если пользователь был удален, иначе false
      */
     boolean deleteUserById(UUID id);
+
+
 }

@@ -60,4 +60,12 @@ public interface OrdersService {
      */
 
       Order patch(UUID orderId, Map<Object,Object> fields);
+
+    /**
+     * Получает список заказов по данному id пользователя
+     *
+     * @param userId - id пользователя, чьи заказы нужно найти
+     * @return - orders - список заказов данного пользователя
+     */
+      List<Order> readOrderByUserId(UUID userId);
 }

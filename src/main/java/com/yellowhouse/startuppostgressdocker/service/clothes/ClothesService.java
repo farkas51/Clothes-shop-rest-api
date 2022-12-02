@@ -2,8 +2,10 @@ package com.yellowhouse.startuppostgressdocker.service.clothes;
 
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
+import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public interface ClothesService {
@@ -65,4 +67,14 @@ public interface ClothesService {
      */
     List<Clothes> getClothesWhereCapsules(UUID capsuleId);
 
+    /**
+     * Обновляет вещь с заданным ID, по конкретным полям
+     * в соответствии с переданными полями
+     *
+     * @param fields - поля, которые необходимо обновить в сущности вещи
+     * @param clothesId - id вещи который нужно обновить
+     * @return - order - обьект вещи с обновленными полями
+     */
+
+    Clothes patch(UUID clothesId, Map<Object,Object> fields);
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -28,8 +29,8 @@ public class Order extends OrderAudit {
     private UUID capsuleId;
     private int price;
     private int size;
-    private Date deliveryDateToClient;
-    private Date deliveryDateBack;
+    private LocalDateTime deliveryDateToClient;
+    private LocalDateTime deliveryDateBack;
 
 
 }

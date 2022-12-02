@@ -58,4 +58,10 @@ public class OrdersController {
         return patchedOrder;
     }
 
+    @GetMapping("/user-orders/{id}")
+    public List<Order> findOrdersByUserId(@PathVariable(value = "id") UUID userId){
+        List<Order> orderList = ordersService.readOrderByUserId(userId);
+        return orderList;
+    }
+
 }

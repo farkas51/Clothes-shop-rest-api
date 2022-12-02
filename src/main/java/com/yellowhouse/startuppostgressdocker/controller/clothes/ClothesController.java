@@ -3,12 +3,14 @@ package com.yellowhouse.startuppostgressdocker.controller.clothes;
 import com.yellowhouse.startuppostgressdocker.converter.ClothesResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
+import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.service.clothes.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -68,5 +70,11 @@ public class ClothesController {
                 .map(clothes -> converter.convert(clothes))
                 .collect(Collectors.toList());
         return clothesList;
+    }
+
+    @PatchMapping("/{id}")
+    public Clothes patchClothes(@PathVariable(value = "id") UUID id, @RequestBody Map<Object,Object> fields){
+        Clothes patchedClothes = clothesService.patch(id,fields);
+        return patchedClothes;
     }
 }
