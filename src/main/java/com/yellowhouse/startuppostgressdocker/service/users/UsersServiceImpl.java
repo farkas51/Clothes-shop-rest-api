@@ -69,4 +69,29 @@ public class UsersServiceImpl implements UsersService {
         log.info("Удален пользователь " + userId);
         return flag = true;
     }
+
+    @Override
+    public Users readUserByPhoneNumber(String phoneNumber) {
+        try {
+            Users user = usersRepository.getByPhoneNumber(phoneNumber);
+            log.info("Получен пользователь " + phoneNumber);
+            return user;
+        } catch (Exception e) {
+            log.info("Пользователь не найден");
+            throw new ResourceNotFoundException("User not found" + phoneNumber);
+        }
+    }
+
+    @Override
+    public Users readUserByEmail(String email) {
+        try {
+            Users user = usersRepository.getByEmail(email);
+            log.info("Получен пользователь " + email);
+            return user;
+        } catch (Exception e) {
+            log.info("Пользователь не найден");
+            throw new ResourceNotFoundException("User not found" + email);
+        }
+    }
+
 }

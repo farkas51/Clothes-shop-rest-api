@@ -46,5 +46,19 @@ public interface UsersService {
      */
     boolean deleteUserById(UUID id);
 
+    /**
+     * Возвращает пользователя по его phoneNumber
+     *
+     * @param phoneNumber - Номер телефона пользоватееля
+     * @return - объект пользователя с заданным номером телефона
+     */
+    Users readUserByPhoneNumber(String phoneNumber);
 
+    /**
+     * Возвращает пользователя по его Email
+     *
+     * @param email - Номер телефона пользоватееля
+     * @return - объект пользователя с заданным номером телефона
+     */
+    Users readUserByEmail(String email);
 }
