@@ -3,7 +3,6 @@ package com.yellowhouse.startuppostgressdocker.controller.clothes;
 import com.yellowhouse.startuppostgressdocker.converter.ClothesResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
-import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.service.clothes.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -65,7 +64,7 @@ public class ClothesController {
     }
 
     @GetMapping("/clothes-in-capsula")
-    public List<ClothesResponse> findClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId){
+    public List<ClothesResponse> findClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId) {
         List<ClothesResponse> clothesList = clothesService.getClothesWhereCapsules(capsuleId).stream()
                 .map(clothes -> converter.convert(clothes))
                 .collect(Collectors.toList());
@@ -73,8 +72,8 @@ public class ClothesController {
     }
 
     @PatchMapping("/{id}")
-    public Clothes patchClothes(@PathVariable(value = "id") UUID id, @RequestBody Map<Object,Object> fields){
-        Clothes patchedClothes = clothesService.patch(id,fields);
+    public Clothes patchClothes(@PathVariable(value = "id") UUID id, @RequestBody Map<Object, Object> fields) {
+        Clothes patchedClothes = clothesService.patch(id, fields);
         return patchedClothes;
     }
 }

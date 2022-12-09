@@ -3,6 +3,7 @@ package com.yellowhouse.startuppostgressdocker.service.capsules;
 import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface CapsulesService {
@@ -43,7 +44,7 @@ public interface CapsulesService {
      * в соответствии с переданной капсулой
      *
      * @param capsule - капсула в соответсвии с которой нужно обновить данные
-     * @param id       - id капсулы которую нужно обновить
+     * @param id      - id капсулы которую нужно обновить
      */
     void update(Capsule capsule, UUID id);
 
@@ -55,4 +56,11 @@ public interface CapsulesService {
      */
     List<Capsule> getCapsulesWhereClothes(UUID clothesId);
 
+    /**
+     * Возвращает список размеров вещей в капсулах, найденных по size,type
+     *
+     * @param size - размер капсулы
+     * @param type - тип капсулы
+     */
+    Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type);
 }

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -50,7 +51,7 @@ public class CapsulesController {
     }
 
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCapsules(@PathVariable(value = "id") UUID capsulesId) {
         if (capsulesService.deleteClothesById(capsulesId)) {
             return ResponseEntity.ok().build();
@@ -80,4 +81,12 @@ public class CapsulesController {
                 .collect(Collectors.toList());
         return capsuleResponse;
     }
+
+    @GetMapping("/capsule-with-type-size")
+    public Set<String> findClothesSizeInCapsulaByTypeAndSize(@RequestParam(value = "type") String type, @RequestParam(value = "size") String size) {
+        Set<String> clothesSizes = capsulesService.getSizesInCapsulaByTypeAndStyle(size, type);
+
+        return clothesSizes;
+    }
+
 }

@@ -28,7 +28,7 @@ public class Capsule extends CapsuleAudit {
     private String type;
     private int price;
     private int size;
-
+    private String clothesSize;
     @ManyToMany
     @JoinTable(name = "HAS",
             joinColumns = @JoinColumn(name = "CAPSULES_ID", referencedColumnName = "id"),

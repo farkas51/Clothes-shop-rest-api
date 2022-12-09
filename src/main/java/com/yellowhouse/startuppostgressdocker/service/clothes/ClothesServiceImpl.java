@@ -2,8 +2,6 @@ package com.yellowhouse.startuppostgressdocker.service.clothes;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
-import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
-import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +67,7 @@ public class ClothesServiceImpl implements ClothesService {
 
     @Override
     public List<Clothes> findByStatus(Integer status) {
-       return clothesRepository.getByStatus(status);
+        return clothesRepository.getByStatus(status);
     }
 
     @Override
@@ -81,16 +79,16 @@ public class ClothesServiceImpl implements ClothesService {
     @Override
     public Clothes patch(UUID clothesId, Map<Object, Object> fields) {
         Optional<Clothes> clothes = clothesRepository.findById(clothesId);
-        if (clothes.isPresent()){
-            fields.forEach((key,value) ->{
+        if (clothes.isPresent()) {
+            fields.forEach((key, value) -> {
                 Field field = ReflectionUtils.findField(Clothes.class, key.toString());
                 field.setAccessible(true);
-                if (field.getType().equals(UUID.class)){
-                    ReflectionUtils.setField(field,clothes.get(),UUID.fromString(value.toString()));
+                if (field.getType().equals(UUID.class)) {
+                    ReflectionUtils.setField(field, clothes.get(), UUID.fromString(value.toString()));
                 } else if (field.getType().equals(int.class)) {
-                    ReflectionUtils.setField(field,clothes.get(),Integer.valueOf(value.toString()));
+                    ReflectionUtils.setField(field, clothes.get(), Integer.valueOf(value.toString()));
                 } else if (field.getType().equals(LocalDateTime.class)) {
-                    ReflectionUtils.setField(field,clothes.get(), LocalDateTime.parse(value.toString()));
+                    ReflectionUtils.setField(field, clothes.get(), LocalDateTime.parse(value.toString()));
 
                 }
             });

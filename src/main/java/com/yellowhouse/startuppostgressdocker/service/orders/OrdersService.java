@@ -1,6 +1,5 @@
 package com.yellowhouse.startuppostgressdocker.service.orders;
 
-import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 
 import java.util.List;
@@ -45,8 +44,8 @@ public interface OrdersService {
      * Обновляет заказ с заданным ID,
      * в соответствии с переданным заказом
      *
-     * @param order - заказ в соответсвии с которым нужно обновить данные
-     * @param orderId      - id заказа который нужно обновить
+     * @param order   - заказ в соответсвии с которым нужно обновить данные
+     * @param orderId - id заказа который нужно обновить
      */
     void update(Order order, UUID orderId);
 
@@ -54,12 +53,12 @@ public interface OrdersService {
      * Обновляет заказ с заданным ID, по конкретным полям
      * в соответствии с переданными полями
      *
-     * @param fields - поля, которые необходимо обновить в сущеости заказа
+     * @param fields  - поля, которые необходимо обновить в сущеости заказа
      * @param orderId - id заказа который нужно обновить
      * @return - order - обьект заказа с обновленными полями
      */
 
-      Order patch(UUID orderId, Map<Object,Object> fields);
+    Order patch(UUID orderId, Map<Object, Object> fields);
 
     /**
      * Получает список заказов по данному id пользователя
@@ -67,5 +66,5 @@ public interface OrdersService {
      * @param userId - id пользователя, чьи заказы нужно найти
      * @return - orders - список заказов данного пользователя
      */
-      List<Order> readOrderByUserId(UUID userId);
+    List<Order> readOrderByUserId(UUID userId);
 }

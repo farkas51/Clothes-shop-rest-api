@@ -9,4 +9,6 @@ import java.util.UUID;
 public interface CapsulesRepository extends JpaRepository<Capsule, UUID> {
 
     List<Capsule> findByClothesInCapsula_id(UUID clothesId);
+
+    List<Capsule> getBySizeAndType(int size, String type);
 }

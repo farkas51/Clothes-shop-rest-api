@@ -18,6 +18,7 @@ public class CapsulesResponseConverterImpl implements CapsulesResponseConverter 
                 .size(source.getSize())
                 .price(source.getPrice())
                 .type(source.getType())
+                .clothesSize(source.getClothesSize())
                 .clothesInCapsulaIds(
                         source.getClothesInCapsula().stream().map(Clothes::getId).collect(Collectors.toSet())
                 )

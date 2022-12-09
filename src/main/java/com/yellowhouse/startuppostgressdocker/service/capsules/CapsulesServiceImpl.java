@@ -3,17 +3,13 @@ package com.yellowhouse.startuppostgressdocker.service.capsules;
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
 import com.yellowhouse.startuppostgressdocker.converter.ClothesResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
-import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
-import com.yellowhouse.startuppostgressdocker.model.clothes.ClothesResponse;
 import com.yellowhouse.startuppostgressdocker.repository.capsules.CapsulesRepository;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -77,8 +73,15 @@ public class CapsulesServiceImpl implements CapsulesService {
 
     @Override
     public List<Capsule> getCapsulesWhereClothes(UUID clothesId) {
-       List<Capsule> capsules = capsulesRepository.findByClothesInCapsula_id(clothesId);
-       return capsules;
+        List<Capsule> capsules = capsulesRepository.findByClothesInCapsula_id(clothesId);
+        return capsules;
+    }
+
+    @Override
+    public Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type) {
+        List<Capsule> capsules = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
+        Set<String> sizes = new HashSet<>();
+        return sizes;
     }
 
 }

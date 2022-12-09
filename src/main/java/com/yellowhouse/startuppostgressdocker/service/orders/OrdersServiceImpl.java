@@ -1,15 +1,10 @@
 package com.yellowhouse.startuppostgressdocker.service.orders;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.repository.orders.OrdersRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.el.util.ReflectionUtil;
-import org.aspectj.weaver.ast.Or;
-import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
@@ -19,7 +14,7 @@ import java.util.*;
 
 @Slf4j
 @Service
-public class OrdersServiceImpl implements OrdersService{
+public class OrdersServiceImpl implements OrdersService {
 
     @Autowired
     public OrdersRepository ordersRepository;
@@ -73,16 +68,16 @@ public class OrdersServiceImpl implements OrdersService{
     @Override
     public Order patch(UUID orderId, Map<Object, Object> fields) {
         Optional<Order> order = ordersRepository.findById(orderId);
-        if (order.isPresent()){
-            fields.forEach((key,value) ->{
+        if (order.isPresent()) {
+            fields.forEach((key, value) -> {
                 Field field = ReflectionUtils.findField(Order.class, key.toString());
                 field.setAccessible(true);
-                if (field.getType().equals(UUID.class)){
-                    ReflectionUtils.setField(field,order.get(),UUID.fromString(value.toString()));
+                if (field.getType().equals(UUID.class)) {
+                    ReflectionUtils.setField(field, order.get(), UUID.fromString(value.toString()));
                 } else if (field.getType().equals(int.class)) {
-                    ReflectionUtils.setField(field,order.get(),Integer.valueOf(value.toString()));
+                    ReflectionUtils.setField(field, order.get(), Integer.valueOf(value.toString()));
                 } else if (field.getType().equals(LocalDateTime.class)) {
-                    ReflectionUtils.setField(field,order.get(), LocalDateTime.parse(value.toString()));
+                    ReflectionUtils.setField(field, order.get(), LocalDateTime.parse(value.toString()));
 
                 }
             });

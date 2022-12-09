@@ -14,6 +14,7 @@ public class CapsuleResponse {
     private String type;
     private int price;
     private int size;
+    private String clothesSize;
 
     private Set<UUID> clothesInCapsulaIds;
 

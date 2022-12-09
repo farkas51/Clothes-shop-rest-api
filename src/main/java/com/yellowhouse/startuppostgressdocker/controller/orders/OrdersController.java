@@ -1,13 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.controller.orders;
 
-import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
-import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
-import com.yellowhouse.startuppostgressdocker.repository.orders.OrdersRepository;
 import com.yellowhouse.startuppostgressdocker.service.orders.OrdersService;
-import org.aspectj.weaver.ast.Or;
-import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 
 @RestController
@@ -26,7 +19,7 @@ public class OrdersController {
     OrdersService ordersService;
 
     @PostMapping()
-    public Order addOrder(@RequestBody Order order){
+    public Order addOrder(@RequestBody Order order) {
         ordersService.createOrder(order);
         return order;
     }
@@ -53,13 +46,13 @@ public class OrdersController {
     }
 
     @PatchMapping("/{id}")
-    public Order patchOrder(@PathVariable(value = "id") UUID id, @RequestBody Map<Object,Object> fields){
-        Order patchedOrder = ordersService.patch(id,fields);
+    public Order patchOrder(@PathVariable(value = "id") UUID id, @RequestBody Map<Object, Object> fields) {
+        Order patchedOrder = ordersService.patch(id, fields);
         return patchedOrder;
     }
 
     @GetMapping("/user-orders/{id}")
-    public List<Order> findOrdersByUserId(@PathVariable(value = "id") UUID userId){
+    public List<Order> findOrdersByUserId(@PathVariable(value = "id") UUID userId) {
         List<Order> orderList = ordersService.readOrderByUserId(userId);
         return orderList;
     }
