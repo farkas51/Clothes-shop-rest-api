@@ -67,4 +67,12 @@ public interface OrdersService {
      * @return - orders - список заказов данного пользователя
      */
     List<Order> readOrderByUserId(UUID userId);
+
+    /**
+     * Получает список доставок в определённый день
+     *
+     * @param dateOfDelivery  - дата, по которой нужно найти заказы (формат ГГ-ММ-ДД)
+     * @return - orders - список дат удовлетворяющий условию
+     */
+    List<String> getDeliveryDateTimeByDate(String dateOfDelivery);
 }

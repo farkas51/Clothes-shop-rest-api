@@ -4,6 +4,7 @@ import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundExcepti
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.repository.orders.OrdersRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
@@ -92,6 +93,17 @@ public class OrdersServiceImpl implements OrdersService {
     public List<Order> readOrderByUserId(UUID userId) {
         List<Order> orderList = ordersRepository.findByUserId(userId);
         return orderList;
+    }
+
+    @Override
+    public List<String> getDeliveryDateTimeByDate(String dateOfDelivery) {
+        List<String> datesFromDb = ordersRepository.findDeliveryDateByDate();
+        List<String> dates = new ArrayList<>();
+        for (String date:datesFromDb) {
+            if (date.contains(dateOfDelivery))
+                dates.add(date);
+        }
+        return dates;
     }
 
 }

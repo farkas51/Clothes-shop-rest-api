@@ -57,4 +57,10 @@ public class OrdersController {
         return orderList;
     }
 
+    @GetMapping("/get-deliveries-by-date")
+    public List<String> findDatesToDeliveryByDay(@RequestParam(value = "date") String date) {
+        List<String> orderList = ordersService.getDeliveryDateTimeByDate(date);
+        return orderList;
+    }
+
 }
