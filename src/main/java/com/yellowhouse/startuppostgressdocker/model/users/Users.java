@@ -30,6 +30,7 @@ public class Users extends UsersAudit {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
     private String address;
+    private String password;
 
 
 }

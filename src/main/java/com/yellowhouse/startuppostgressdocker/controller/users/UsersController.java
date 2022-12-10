@@ -1,6 +1,10 @@
 package com.yellowhouse.startuppostgressdocker.controller.users;
 
+import com.yellowhouse.startuppostgressdocker.converter.UserResponseConverter;
+import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
+import com.yellowhouse.startuppostgressdocker.model.users.UserResponse;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
+import com.yellowhouse.startuppostgressdocker.repository.users.UsersRepository;
 import com.yellowhouse.startuppostgressdocker.service.users.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -16,15 +21,23 @@ public class UsersController {
     @Autowired
     public UsersService usersService;
 
+    @Autowired
+    public UserResponseConverter converter;
+
     @PostMapping
-    public ResponseEntity<Users> addUsers(@RequestBody Users users) {
+    public ResponseEntity<UserResponse> addUsers(@RequestBody Users users) {
         usersService.createUser(users);
-        return ResponseEntity.ok().body(users);
+       UserResponse userResponse= converter.convert(users);
+        return ResponseEntity.ok().body(userResponse);
     }
 
     @GetMapping
-    public ResponseEntity<List<Users>> findAll() {
-        return ResponseEntity.ok(usersService.readAllUsers());
+    public ResponseEntity<List<UserResponse>> findAll() {
+
+        List<UserResponse> usersResponse = usersService.readAllUsers().stream()
+                .map(capsules -> converter.convert(capsules))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(usersResponse);
     }
 
     @GetMapping("/{id}")
