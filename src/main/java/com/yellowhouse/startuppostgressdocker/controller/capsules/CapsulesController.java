@@ -1,9 +1,9 @@
 package com.yellowhouse.startuppostgressdocker.controller.capsules;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.converter.CapsulesResponseConverter;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
+import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
 import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
-import com.yellowhouse.startuppostgressdocker.repository.capsules.CapsulesRepository;
-import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import com.yellowhouse.startuppostgressdocker.service.capsules.CapsulesService;
 import com.yellowhouse.startuppostgressdocker.service.clothes.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,42 +11,47 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/capsules")
 public class CapsulesController {
-    @Autowired
-    public CapsulesRepository capsulesRepository;
 
     @Autowired
-    public ClothesRepository clothesRepository;
+    public CapsulesResponseConverter converter;
     @Autowired
     public CapsulesService capsulesService;
 
     @Autowired
     public ClothesService clothesService;
 
+
     @PostMapping()
-    public ResponseEntity<Capsules> addCapsules(@RequestBody Capsules capsules) {
-        capsulesService.createCapsule(capsules);
-        return ResponseEntity.ok().body(capsules);
+    public CapsuleResponse addCapsules(@RequestBody Capsule capsule) {
+        capsulesService.createCapsule(capsule);
+        return converter.convert(capsule);
     }
 
     @GetMapping()
-    public ResponseEntity<List<Capsules>> findAll() {
-        return ResponseEntity.ok(capsulesService.readAllCapsules());
+    public List<CapsuleResponse> findAll() {
+        List<CapsuleResponse> capsuleRespons = capsulesService.readAllCapsules().stream()
+                .map(capsules -> converter.convert(capsules))
+                .collect(Collectors.toList());
+        return capsuleRespons;
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Capsules> findCapsulesById(@PathVariable(value = "id") UUID capsulesId) {
-        Capsules capsules = capsulesService.readCapsulesById(capsulesId);
-        return ResponseEntity.ok().body(capsules);
+    public CapsuleResponse findCapsulesById(@PathVariable(value = "id") UUID capsulesId) {
+        Capsule capsule = capsulesService.readCapsulesById(capsulesId);
+        CapsuleResponse response = converter.convert(capsule);
+        return response;
     }
 
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCapsules(@PathVariable(value = "id") UUID capsulesId) {
         if (capsulesService.deleteClothesById(capsulesId)) {
             return ResponseEntity.ok().build();
@@ -56,17 +61,32 @@ public class CapsulesController {
     }
 
 
-    @GetMapping("/clothes")
-    public Capsules putClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId
+    @GetMapping("/add-clothes-to-capsule")
+    public void putClothesInCapsula(@RequestParam(value = "capsuleId") UUID capsuleId
             , @RequestParam(value = "clothesId") UUID clothesId) {
-        Capsules capsules = capsulesRepository.findById(capsuleId).get();
-        Clothes clothes = clothesRepository.findById(clothesId).get();
+        Capsule capsule = capsulesService.readCapsulesById(capsuleId);
+        Clothes clothes = clothesService.readClotheById(clothesId);
         if (!clothes.isInCapsula()) {
             clothes.setInCapsula(true);
-            clothesRepository.save(clothes);
+            clothesService.update(clothes, clothesId);
         }
-        capsules.addClothesToCapsule(clothes);
-        return capsulesRepository.save(capsules);
+        capsule.addClothesToCapsule(clothes);
+        capsulesService.update(capsule, capsuleId);
+    }
+
+    @GetMapping("/capsules-with-clothes")
+    public List<CapsuleResponse> findCapsulesWhereClothes(@RequestParam(value = "clothesId") UUID clothesId) {
+        List<CapsuleResponse> capsuleResponse = capsulesService.getCapsulesWhereClothes(clothesId).stream()
+                .map(capsules -> converter.convert(capsules))
+                .collect(Collectors.toList());
+        return capsuleResponse;
+    }
+
+    @GetMapping("/capsule-with-type-size")
+    public Set<String> findClothesSizeInCapsulaByTypeAndSize(@RequestParam(value = "type") String type, @RequestParam(value = "size") String size) {
+        Set<String> clothesSizes = capsulesService.getSizesInCapsulaByTypeAndStyle(size, type);
+
+        return clothesSizes;
     }
 
 }

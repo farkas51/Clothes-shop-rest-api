@@ -46,9 +46,21 @@ public class UsersController {
 
     @GetMapping("/registered")
     public ResponseEntity<Boolean> isUserRegistered(@RequestParam(value = "email") String email,
-                                                    @RequestParam(value = "phoneNumber") String phoneNumber){
-        if(usersService.isRegistered(email,phoneNumber))
+                                                    @RequestParam(value = "phoneNumber") String phoneNumber) {
+        if (usersService.isRegistered(email, phoneNumber))
             return ResponseEntity.ok(Boolean.TRUE);
         else return ResponseEntity.ok(Boolean.FALSE);
+    }
+
+    @GetMapping("/user-by-phone-number")
+    public Users findUserByPhoneNumber(@RequestParam(value = "phoneNumber") String phoneNumber) {
+        Users user = usersService.readUserByPhoneNumber(phoneNumber);
+        return user;
+    }
+
+    @GetMapping("/user-by-email")
+    public Users findUserByEmail(@RequestParam(value = "email") String email) {
+        Users user = usersService.readUserByEmail(email);
+        return user;
     }
 }

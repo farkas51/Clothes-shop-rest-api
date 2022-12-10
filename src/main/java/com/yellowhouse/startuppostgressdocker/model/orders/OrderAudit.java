@@ -1,4 +1,4 @@
-package com.yellowhouse.startuppostgressdocker.model.capsules;
+package com.yellowhouse.startuppostgressdocker.model.orders;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -17,8 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(value = {"createdAt"}, allowGetters = true)
-public class CapsulesAudit {
-
+public class OrderAudit {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate

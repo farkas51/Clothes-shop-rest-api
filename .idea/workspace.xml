@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="testable app with crud for clothes and capsules&#10;based on services">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/SwaggerConfig2.java" afterDir="false" />
+    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added endpoint for search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/orders/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/orders/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/orders/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/orders/OrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +23,7 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -44,7 +47,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2HXJypZiEvyjoFv8AilIzEQw2JD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,8 +58,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kolia/IdeaProjects/startup-postgress-docker/src/main/java/com/yellowhouse/startuppostgressdocker&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kolia/Desktop&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -160,7 +168,56 @@
       <option name="project" value="LOCAL" />
       <updated>1669315501968</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="swagger added">
+      <created>1669468321911</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669468321911</updated>
+    </task>
+    <task id="LOCAL-00007" summary="resolved recursion trouble">
+      <created>1669635149520</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669635149520</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added orders api">
+      <created>1669896858855</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669896858855</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added orders api">
+      <created>1669926378448</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669926378448</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added new endpoints">
+      <created>1669979576208</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669979576208</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added new endpoints">
+      <created>1670591153034</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670591153035</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added endpoint for search">
+      <created>1670597222802</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670597222802</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +235,20 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="fixes" />
     <MESSAGE value="testable app with crud for clothes and capsules&#10;based on services" />
-    <option name="LAST_COMMIT_MESSAGE" value="testable app with crud for clothes and capsules&#10;based on services" />
+    <MESSAGE value="swagger added" />
+    <MESSAGE value="resolved recursion trouble" />
+    <MESSAGE value="added orders api" />
+    <MESSAGE value="added new endpoints" />
+    <MESSAGE value="added endpoint for search" />
+    <option name="LAST_COMMIT_MESSAGE" value="added endpoint for search" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.clothes.Clothes" memberName="wear" />
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.clothes.Clothes" memberName="size" />
+        <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.capsules.Capsules" memberName="id" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

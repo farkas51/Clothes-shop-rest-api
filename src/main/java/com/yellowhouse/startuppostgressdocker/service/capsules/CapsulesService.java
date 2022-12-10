@@ -1,8 +1,9 @@
 package com.yellowhouse.startuppostgressdocker.service.capsules;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsules;
+import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface CapsulesService {
@@ -13,14 +14,14 @@ public interface CapsulesService {
      * @param capsule - капсула для создания
      */
 
-    void createCapsule(Capsules capsule);
+    void createCapsule(Capsule capsule);
 
     /**
      * Возвращает список всех имеющихся кпсул
      *
      * @return список капсул
      */
-    List<Capsules> readAllCapsules();
+    List<Capsule> readAllCapsules();
 
     /**
      * Возвращает капсулу по её ID
@@ -28,7 +29,7 @@ public interface CapsulesService {
      * @param capsuleId - ID капсулы
      * @return - объект капсулы с заданным ID
      */
-    Capsules readCapsulesById(UUID capsuleId);
+    Capsule readCapsulesById(UUID capsuleId);
 
     /**
      * Удаляет капсулу с заданным ID
@@ -38,4 +39,28 @@ public interface CapsulesService {
      */
     boolean deleteClothesById(UUID capsuleId);
 
+    /**
+     * Обновляет капсулу с заданным ID,
+     * в соответствии с переданной капсулой
+     *
+     * @param capsule - капсула в соответсвии с которой нужно обновить данные
+     * @param id      - id капсулы которую нужно обновить
+     */
+    void update(Capsule capsule, UUID id);
+
+
+    /**
+     * Возвращает список капсул в которых находится определённая вещь
+     *
+     * @param clothesId - вещь, которая содержится в капсулах
+     */
+    List<Capsule> getCapsulesWhereClothes(UUID clothesId);
+
+    /**
+     * Возвращает список размеров вещей в капсулах, найденных по size,type
+     *
+     * @param size - размер капсулы
+     * @param type - тип капсулы
+     */
+    Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type);
 }

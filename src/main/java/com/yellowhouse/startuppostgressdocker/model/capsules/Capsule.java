@@ -20,7 +20,7 @@ import java.util.UUID;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Capsules extends CapsulesAudit {
+public class Capsule extends CapsuleAudit {
     @Id
     @Column(name = "ID", unique = true, nullable = false)
     @GeneratedValue
@@ -28,7 +28,7 @@ public class Capsules extends CapsulesAudit {
     private String type;
     private int price;
     private int size;
-
+    private String clothesSize;
     @ManyToMany
     @JoinTable(name = "HAS",
             joinColumns = @JoinColumn(name = "CAPSULES_ID", referencedColumnName = "id"),
