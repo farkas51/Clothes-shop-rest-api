@@ -16,5 +16,7 @@ public interface OrdersRepository extends JpaRepository<Order, UUID> {
     List<Order> findByUserId(UUID userId);
     @Query(value = "SELECT delivery_date_to_client FROM orders",nativeQuery = true)
     List<String> findDeliveryDateByDate();
+
+    List<Order> findByStatus(String status);
 }
 

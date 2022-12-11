@@ -2,10 +2,7 @@ package com.yellowhouse.startuppostgressdocker.model.orders;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +12,7 @@ import java.util.UUID;
 @Data
 @ToString
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "ORDERS")
@@ -33,6 +31,8 @@ public class Order extends OrderAudit {
     private int size;
     private LocalDateTime deliveryDateToClient;
     private LocalDateTime deliveryDateBack;
+    @Builder.Default
+    private String status = "NEW";
 
 
 }

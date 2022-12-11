@@ -2,6 +2,7 @@ package com.yellowhouse.startuppostgressdocker.controller.orders;
 
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.service.orders.OrdersService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class OrdersController {
         return order;
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrders(@PathVariable(value = "id") UUID orderId) {
         if (ordersService.deleteOrderById(orderId)) {
             return ResponseEntity.ok().build();
@@ -60,6 +61,12 @@ public class OrdersController {
     @GetMapping("/get-deliveries-by-date")
     public List<String> findDatesToDeliveryByDay(@RequestParam(value = "date") String date) {
         List<String> orderList = ordersService.getDeliveryDateTimeByDate(date);
+        return orderList;
+    }
+
+    @GetMapping("/get-orders-by-status")
+    public List<Order> findOrdersByStatus(@RequestParam(value = "status") String status) {
+        List<Order> orderList = ordersService.readOrderByStatus(status);
         return orderList;
     }
 

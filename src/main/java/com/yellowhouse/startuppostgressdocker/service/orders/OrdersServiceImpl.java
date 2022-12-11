@@ -104,12 +104,19 @@ public class OrdersServiceImpl implements OrdersService {
     public List<String> getDeliveryDateTimeByDate(String dateOfDelivery) {
         List<String> datesFromDb = ordersRepository.findDeliveryDateByDate();
         List<String> dates = new ArrayList<>();
+        datesFromDb.removeIf(Objects::isNull);
         for (String date:datesFromDb) {
             if (date.contains(dateOfDelivery))
                 dates.add(date);
         }
         log.info("Получены даты возможной доставки до клиента");
         return dates;
+    }
+
+    @Override
+    public List<Order> readOrderByStatus(String status) {
+        List<Order> orderList = ordersRepository.findByStatus(status);
+        return orderList;
     }
 
 }

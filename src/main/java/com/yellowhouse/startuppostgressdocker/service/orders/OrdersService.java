@@ -1,6 +1,7 @@
 package com.yellowhouse.startuppostgressdocker.service.orders;
 
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
+import org.aspectj.weaver.ast.Or;
 
 import java.util.List;
 import java.util.Map;
@@ -75,4 +76,12 @@ public interface OrdersService {
      * @return - orders - список дат удовлетворяющий условию
      */
     List<String> getDeliveryDateTimeByDate(String dateOfDelivery);
+
+    /**
+     * Получает список заказов в определённом статусе
+     *
+     * @param status  - статус
+     * @return orders - список заказов удовлетворяющий условию
+     */
+    List<Order> readOrderByStatus(String status);
 }

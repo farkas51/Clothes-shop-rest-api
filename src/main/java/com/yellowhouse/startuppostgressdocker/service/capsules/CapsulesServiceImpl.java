@@ -84,10 +84,16 @@ public class CapsulesServiceImpl implements CapsulesService {
     @Override
     public Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type) {
         List<Capsule> capsules = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
+
+        if(capsules.isEmpty()){
+            throw new ResourceNotFoundException("Капсулы с данными параметрами не найдены");
+        }
+
         Set<String> sizes = new HashSet<>();
         for (Capsule capsule:capsules
              ) {
-            sizes.add(capsule.getClothesSize());
+            if (capsule.getStatus().equals("NEW") || capsule.getStatus().equals("IN_STOCK"))
+                 sizes.add(capsule.getClothesSize());
         }
         log.info("Получены размеры в капсулах по стилю и размеру капсулы");
         return sizes;
@@ -101,21 +107,21 @@ public class CapsulesServiceImpl implements CapsulesService {
             throw new ResourceNotFoundException("Капсулы с данными параметрами не найдены");
         }
 
-        List<Capsule> capsulesInNewStatus = new ArrayList<>();
+        List<Capsule> capsulesInValidStatus = new ArrayList<>();
         for (Capsule capsule:capsulesList
              ) {
-            if (capsule.getStatus().equals("NEW"))
-                capsulesInNewStatus.add(capsule);
+            if (capsule.getStatus().equals("NEW") || capsule.getStatus().equals("IN_STOCK"))
+                capsulesInValidStatus.add(capsule);
         }
 
-        if(capsulesInNewStatus.isEmpty()){
+        if(capsulesInValidStatus.isEmpty()){
             throw new ResourceNotFoundException("Нет капсул в статусе NEW");
         }
 
         Random r = new Random();
 
-        int i = r.nextInt(capsulesInNewStatus.size());
-        Capsule randomCapsule = capsulesInNewStatus.get(i);
+        int i = r.nextInt(capsulesInValidStatus.size());
+        Capsule randomCapsule = capsulesInValidStatus.get(i);
         randomCapsule.setStatus("ON_CLIENT");
         capsulesRepository.save(randomCapsule);
         return randomCapsule;
