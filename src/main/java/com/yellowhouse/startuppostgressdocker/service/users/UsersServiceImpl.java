@@ -36,7 +36,7 @@ public class UsersServiceImpl implements UsersService {
     public Boolean isRegistered(String email, String phoneNumber) {
         boolean isExistByEmailOrByPhoneNumber;
 
-        isExistByEmailOrByPhoneNumber = usersRepository.existsByPhoneNumberOrEmail(email, phoneNumber);
+        isExistByEmailOrByPhoneNumber = usersRepository.existsByEmailOrPhoneNumber(email, phoneNumber);
 
         if (isExistByEmailOrByPhoneNumber) {
             log.info("Пользователь уже зарегистрирован");
