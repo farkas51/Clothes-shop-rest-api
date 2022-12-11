@@ -2,6 +2,7 @@ package com.yellowhouse.startuppostgressdocker.controller.users;
 
 import com.yellowhouse.startuppostgressdocker.converter.UserResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
+import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.model.users.UserResponse;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
 import com.yellowhouse.startuppostgressdocker.repository.users.UsersRepository;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -75,5 +77,12 @@ public class UsersController {
     public Users findUserByEmail(@RequestParam(value = "email") String email) {
         Users user = usersService.readUserByEmail(email);
         return user;
+    }
+
+    @PatchMapping("/{id}")
+    public Users patchOrder(@PathVariable(value = "id") UUID id, @RequestBody Map<Object, Object> fields) {
+        Users patchedUser = usersService.patch(id, fields);
+
+        return patchedUser;
     }
 }

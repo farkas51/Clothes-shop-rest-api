@@ -1,8 +1,10 @@
 package com.yellowhouse.startuppostgressdocker.service.users;
 
+import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public interface UsersService {
@@ -61,4 +63,15 @@ public interface UsersService {
      * @return - объект пользователя с заданным номером телефона
      */
     Users readUserByEmail(String email);
+
+    /**
+     * Обновляет заказ с заданным ID, по конкретным полям
+     * в соответствии с переданными полями
+     *
+     * @param fields  - поля, которые необходимо обновить в сущеости заказа
+     * @param userId - id заказа который нужно обновить
+     * @return - order - обьект заказа с обновленными полями
+     */
+
+    Users patch(UUID userId, Map<Object, Object> fields);
 }
