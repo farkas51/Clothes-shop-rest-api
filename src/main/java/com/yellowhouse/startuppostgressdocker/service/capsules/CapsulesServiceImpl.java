@@ -1,14 +1,17 @@
 package com.yellowhouse.startuppostgressdocker.service.capsules;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.converter.ClothesResponseConverter;
+import com.yellowhouse.startuppostgressdocker.converter.CapsulesResponseConverter;
 import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 import com.yellowhouse.startuppostgressdocker.repository.capsules.CapsulesRepository;
 import com.yellowhouse.startuppostgressdocker.repository.clothes.ClothesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -16,7 +19,7 @@ import java.util.*;
 public class CapsulesServiceImpl implements CapsulesService {
 
     @Autowired
-    public ClothesResponseConverter converter;
+    public CapsulesResponseConverter converter;
 
     @Autowired
     public CapsulesRepository capsulesRepository;
@@ -74,6 +77,7 @@ public class CapsulesServiceImpl implements CapsulesService {
     @Override
     public List<Capsule> getCapsulesWhereClothes(UUID clothesId) {
         List<Capsule> capsules = capsulesRepository.findByClothesInCapsula_id(clothesId);
+        log.info("Получена капсула где находится одежда");
         return capsules;
     }
 
@@ -85,7 +89,63 @@ public class CapsulesServiceImpl implements CapsulesService {
              ) {
             sizes.add(capsule.getClothesSize());
         }
+        log.info("Получены размеры в капсулах по стилю и размеру капсулы");
         return sizes;
+    }
+
+    @Override
+    public Capsule getRandomCapsula(String size, String type) throws ResourceNotFoundException {
+        List<Capsule> capsulesList = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
+
+        if(capsulesList.isEmpty()){
+            throw new ResourceNotFoundException("Капсулы с данными параметрами не найдены");
+        }
+
+        List<Capsule> capsulesInNewStatus = new ArrayList<>();
+        for (Capsule capsule:capsulesList
+             ) {
+            if (capsule.getStatus().equals("NEW"))
+                capsulesInNewStatus.add(capsule);
+        }
+
+        if(capsulesInNewStatus.isEmpty()){
+            throw new ResourceNotFoundException("Нет капсул в статусе NEW");
+        }
+
+        Random r = new Random();
+
+        int i = r.nextInt(capsulesInNewStatus.size());
+        Capsule randomCapsule = capsulesInNewStatus.get(i);
+        randomCapsule.setStatus("ON_CLIENT");
+        capsulesRepository.save(randomCapsule);
+        return randomCapsule;
+    }
+
+    @Override
+    public Capsule patch(UUID capsuleId, Map<Object, Object> fields) {
+        Optional<Capsule> capsule = capsulesRepository.findById(capsuleId);
+        if (capsule.isPresent()) {
+            fields.forEach((key, value) -> {
+                Field field = ReflectionUtils.findField(Capsule.class, key.toString());
+                field.setAccessible(true);
+                if (field.getType().equals(UUID.class)) {
+                    ReflectionUtils.setField(field, capsule.get(), UUID.fromString(value.toString()));
+                } else if (field.getType().equals(int.class)) {
+                    ReflectionUtils.setField(field, capsule.get(), Integer.valueOf(value.toString()));
+                } else if (field.getType().equals(LocalDateTime.class)) {
+                    ReflectionUtils.setField(field, capsule.get(), LocalDateTime.parse(value.toString()));
+
+                }
+                else {
+                    ReflectionUtils.setField(field, capsule.get(), value.toString());
+                }
+            });
+            Capsule updatedCapsule = capsulesRepository.save(capsule.get());
+            log.info("Капсула обновлена");
+            return updatedCapsule;
+        } else {
+            throw new ResourceNotFoundException("Запись с капсулой по заданному id не найдена");
+        }
     }
 
 }

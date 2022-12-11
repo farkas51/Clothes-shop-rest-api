@@ -37,7 +37,7 @@ public class OrdersServiceImpl implements OrdersService {
     public Order readOrderById(UUID orderId) {
         Order order = ordersRepository.findById(orderId).orElseThrow(
                 () -> new ResourceNotFoundException("Order not found " + orderId));
-        log.info("Получена вещь " + orderId);
+        log.info("Получен заказ " + orderId);
         return order;
     }
 
@@ -81,8 +81,12 @@ public class OrdersServiceImpl implements OrdersService {
                     ReflectionUtils.setField(field, order.get(), LocalDateTime.parse(value.toString()));
 
                 }
+                else {
+                    ReflectionUtils.setField(field, order.get(), value.toString());
+                }
             });
             Order updatedOrder = ordersRepository.save(order.get());
+            log.info("Вещь обновлена");
             return updatedOrder;
         } else {
             throw new ResourceNotFoundException("Запись с заказом по заданному id не найдена");
@@ -92,6 +96,7 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     public List<Order> readOrderByUserId(UUID userId) {
         List<Order> orderList = ordersRepository.findByUserId(userId);
+        log.info("Получен заказ клиента по id");
         return orderList;
     }
 
@@ -103,6 +108,7 @@ public class OrdersServiceImpl implements OrdersService {
             if (date.contains(dateOfDelivery))
                 dates.add(date);
         }
+        log.info("Получены даты возможной доставки до клиента");
         return dates;
     }
 

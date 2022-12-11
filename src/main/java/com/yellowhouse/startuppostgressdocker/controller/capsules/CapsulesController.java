@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -89,4 +90,15 @@ public class CapsulesController {
         return clothesSizes;
     }
 
+    @PatchMapping("/{id}")
+    public CapsuleResponse patchCapsule(@PathVariable(value = "id") UUID id, @RequestBody Map<Object, Object> fields) {
+        CapsuleResponse patchedCapsules = converter.convert(capsulesService.patch(id, fields));
+        return patchedCapsules;
+    }
+
+    @GetMapping("/random-capsule")
+    public CapsuleResponse getRandomCapsule(@RequestParam(value = "type") String type, @RequestParam(value = "size") String size) {
+        CapsuleResponse capsuleResponse = converter.convert(capsulesService.getRandomCapsula(size,type));
+        return capsuleResponse;
+    }
 }

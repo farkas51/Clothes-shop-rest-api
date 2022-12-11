@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Getter
+@Builder
 @Setter
 @Entity
 @ToString(exclude = "clothesInCapsula")
@@ -29,6 +30,8 @@ public class Capsule extends CapsuleAudit {
     private int price;
     private int size;
     private String clothesSize;
+    @Builder.Default
+    private String status = "NEW";
     @ManyToMany
     @JoinTable(name = "HAS",
             joinColumns = @JoinColumn(name = "CAPSULES_ID", referencedColumnName = "id"),

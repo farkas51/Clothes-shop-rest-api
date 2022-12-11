@@ -67,12 +67,14 @@ public class ClothesServiceImpl implements ClothesService {
 
     @Override
     public List<Clothes> findByStatus(Integer status) {
+        log.info("Найдена вещь по статусу");
         return clothesRepository.getByStatus(status);
     }
 
     @Override
     public List<Clothes> getClothesWhereCapsules(UUID capsuleId) {
         List<Clothes> clothes = clothesRepository.findByCapsules_id(capsuleId);
+        log.info("Получен список вещей которые входят в определённую капсулу");
         return clothes;
     }
 
@@ -91,8 +93,12 @@ public class ClothesServiceImpl implements ClothesService {
                     ReflectionUtils.setField(field, clothes.get(), LocalDateTime.parse(value.toString()));
 
                 }
+                else {
+                    ReflectionUtils.setField(field, clothes.get(), value.toString());
+                }
             });
             Clothes updatedClothes = clothesRepository.save(clothes.get());
+            log.info("Вещь обновлена");
             return updatedClothes;
         } else {
             throw new ResourceNotFoundException("Запись с вещью по заданному id не найдена");

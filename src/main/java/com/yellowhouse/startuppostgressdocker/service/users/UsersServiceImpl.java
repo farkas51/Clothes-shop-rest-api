@@ -115,6 +115,7 @@ public class UsersServiceImpl implements UsersService {
                 }
             });
             Users updatedUser = usersRepository.save(user.get());
+            log.info("Пользователь обновлен");
             return updatedUser;
         } else {
             throw new ResourceNotFoundException("Запись с заказом по заданному id не найдена");
