@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added endpoint for search">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/UserResponseConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/UserResponseConverterImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/users/UserResponse.java" afterDir="false" />
+    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added password for user entity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/users/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670601350510</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added password for user entity">
+      <created>1670707649482</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670707649482</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,23 +251,10 @@
     <MESSAGE value="added orders api" />
     <MESSAGE value="added new endpoints" />
     <MESSAGE value="added endpoint for search" />
-    <option name="LAST_COMMIT_MESSAGE" value="added endpoint for search" />
+    <MESSAGE value="added password for user entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="added password for user entity" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/users/UsersController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.clothes.Clothes" memberName="wear" />

@@ -81,6 +81,10 @@ public class CapsulesServiceImpl implements CapsulesService {
     public Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type) {
         List<Capsule> capsules = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
         Set<String> sizes = new HashSet<>();
+        for (Capsule capsule:capsules
+             ) {
+            sizes.add(capsule.getClothesSize());
+        }
         return sizes;
     }
 
