@@ -1,22 +1,13 @@
 package com.yellowhouse.startuppostgressdocker;
 
-import com.yellowhouse.startuppostgressdocker.models.CapsulesResponse;
-import com.yellowhouse.startuppostgressdocker.models.ClothesResponse;
 import com.yellowhouse.startuppostgressdocker.models.OrderResponse;
-import org.aspectj.weaver.ast.Or;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.UUID;
 
-import static com.yellowhouse.startuppostgressdocker.steps.ClothesSteps.*;
 import static com.yellowhouse.startuppostgressdocker.steps.OrderSteps.*;
-import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getClothesCreationBody;
 import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getOrderCreationBody;
-import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 public class OrdersTests {
@@ -137,7 +128,6 @@ public class OrdersTests {
                 }
         );
     }
-
 
 
 }

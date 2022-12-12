@@ -1,8 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.service.capsules;
 
 import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
-import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
-import com.yellowhouse.startuppostgressdocker.model.clothes.Clothes;
 
 import java.util.List;
 import java.util.Map;
@@ -73,7 +71,7 @@ public interface CapsulesService {
      * @param size - размер капсулы
      * @param type - тип капсулы
      */
-    Capsule getRandomCapsula(String size, String type);
+    Capsule getRandomCapsula(String size, String type, String clotheSize);
 
     /**
      * Обновляет капсулу с заданным ID, по конкретным полям

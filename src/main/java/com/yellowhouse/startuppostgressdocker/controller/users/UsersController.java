@@ -1,11 +1,8 @@
 package com.yellowhouse.startuppostgressdocker.controller.users;
 
 import com.yellowhouse.startuppostgressdocker.converter.UserResponseConverter;
-import com.yellowhouse.startuppostgressdocker.model.capsules.CapsuleResponse;
-import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.model.users.UserResponse;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
-import com.yellowhouse.startuppostgressdocker.repository.users.UsersRepository;
 import com.yellowhouse.startuppostgressdocker.service.users.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +26,7 @@ public class UsersController {
     @PostMapping
     public ResponseEntity<UserResponse> addUsers(@RequestBody Users users) {
         usersService.createUser(users);
-       UserResponse userResponse= converter.convert(users);
+        UserResponse userResponse = converter.convert(users);
         return ResponseEntity.ok().body(userResponse);
     }
 

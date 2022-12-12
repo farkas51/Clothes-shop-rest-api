@@ -1,15 +1,12 @@
 package com.yellowhouse.startuppostgressdocker;
 
-import com.yellowhouse.startuppostgressdocker.models.OrderResponse;
 import com.yellowhouse.startuppostgressdocker.models.UsersResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static com.yellowhouse.startuppostgressdocker.steps.OrderSteps.*;
 import static com.yellowhouse.startuppostgressdocker.steps.UsersSteps.*;
-import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getOrderCreationBody;
 import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getUserCreationBody;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
@@ -81,7 +78,7 @@ public class UserTests {
             "Тогда: СК200, пользователь удалён")
 
     @Test
-    void testDeleteUserById(){
+    void testDeleteUserById() {
         UsersResponse user = createUser(getUserCreationBody());
 
         deleteUserById(user.getId());
@@ -141,10 +138,10 @@ public class UserTests {
             "Когда: GET /users/registered, дан только email " +
             "Тогда: СК200, вернулся флаг регистрации пользователя")
     @Test
-    void testGetUserRegisteredByOnlyEmail(){
+    void testGetUserRegisteredByOnlyEmail() {
         UsersResponse user = createUser(getUserCreationBody());
 
-        Boolean flag = getUserRegistered("test@test.com","");
+        Boolean flag = getUserRegistered("test@test.com", "");
 
         assertSoftly(
                 softAssertions -> {
@@ -161,10 +158,10 @@ public class UserTests {
             "Когда: GET /users/registered, дан только phoneNumber " +
             "Тогда: СК200, вернулся положительный флаг регистрации пользователя")
     @Test
-    void testGetUserRegisteredByOnlyPhoneNumber(){
+    void testGetUserRegisteredByOnlyPhoneNumber() {
         UsersResponse user = createUser(getUserCreationBody());
 
-        Boolean flag = getUserRegistered("","9537511791");
+        Boolean flag = getUserRegistered("", "9537511791");
 
         assertSoftly(
                 softAssertions -> {
@@ -181,10 +178,10 @@ public class UserTests {
             "Когда: GET /users/registered " +
             "Тогда: СК200, вернулся положительный флаг регистрации пользователя")
     @Test
-    void testGetUserRegisteredByOnlyPhoneNumberAndEmail(){
+    void testGetUserRegisteredByOnlyPhoneNumberAndEmail() {
         UsersResponse user = createUser(getUserCreationBody());
 
-        Boolean flag = getUserRegistered("test@test.com","9537511791");
+        Boolean flag = getUserRegistered("test@test.com", "9537511791");
 
         assertSoftly(
                 softAssertions -> {
@@ -201,10 +198,10 @@ public class UserTests {
             "Когда: GET /users/registered " +
             "Тогда: СК200, вернулся отрицательный флаг  регистрации пользователя")
     @Test
-    void testGetUserRegisteredByOnlyPhoneNumberAndEmailNegative(){
+    void testGetUserRegisteredByOnlyPhoneNumberAndEmailNegative() {
         UsersResponse user = createUser(getUserCreationBody());
 
-        Boolean flag = getUserRegistered("test@tes3t.com","95375112791");
+        Boolean flag = getUserRegistered("test@tes3t.com", "95375112791");
 
         assertSoftly(
                 softAssertions -> {

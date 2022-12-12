@@ -1,6 +1,5 @@
 package com.yellowhouse.startuppostgressdocker.service.users;
 
-import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
 
 import java.util.List;
@@ -68,7 +67,7 @@ public interface UsersService {
      * Обновляет заказ с заданным ID, по конкретным полям
      * в соответствии с переданными полями
      *
-     * @param fields  - поля, которые необходимо обновить в сущеости заказа
+     * @param fields - поля, которые необходимо обновить в сущеости заказа
      * @param userId - id заказа который нужно обновить
      * @return - order - обьект заказа с обновленными полями
      */

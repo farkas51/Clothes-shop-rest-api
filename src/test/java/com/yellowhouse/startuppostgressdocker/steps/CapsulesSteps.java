@@ -56,8 +56,8 @@ public class CapsulesSteps extends ApiConfig {
     }
 
     @Step("Получение капсулы по id")
-    public static void  deleteCapsuleById(UUID capsuleId) {
-       given(requestSpecification)
+    public static void deleteCapsuleById(UUID capsuleId) {
+        given(requestSpecification)
                 .when()
                 .delete(BASE_PATH_CAPSULES + "/" + capsuleId)
                 .then()
@@ -67,11 +67,11 @@ public class CapsulesSteps extends ApiConfig {
     }
 
     @Step("Положить вещь в капсулу")
-    public static void putClothesInCapsula(UUID capsuleId,UUID clothesId) {
+    public static void putClothesInCapsula(UUID capsuleId, UUID clothesId) {
         given(requestSpecification)
                 .when()
-                .param("capsuleId",capsuleId)
-                .param("clothesId",clothesId)
+                .param("capsuleId", capsuleId)
+                .param("clothesId", clothesId)
                 .get(BASE_PATH_CAPSULES + "/add-clothes-to-capsule")
                 .then()
                 .log().all()

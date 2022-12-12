@@ -97,8 +97,9 @@ public class CapsulesController {
     }
 
     @GetMapping("/random-capsule")
-    public CapsuleResponse getRandomCapsule(@RequestParam(value = "type") String type, @RequestParam(value = "size") String size) {
-        CapsuleResponse capsuleResponse = converter.convert(capsulesService.getRandomCapsula(size,type));
+    public CapsuleResponse getRandomCapsule(@RequestParam(value = "type") String type, @RequestParam(value = "size") String size,
+                                            @RequestParam(value = "clothesSize") String clothesSize) {
+        CapsuleResponse capsuleResponse = converter.convert(capsulesService.getRandomCapsula(size, type, clothesSize));
         return capsuleResponse;
     }
 }

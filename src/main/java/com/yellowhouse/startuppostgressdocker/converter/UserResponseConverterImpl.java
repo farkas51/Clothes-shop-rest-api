@@ -5,7 +5,7 @@ import com.yellowhouse.startuppostgressdocker.model.users.Users;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserResponseConverterImpl implements UserResponseConverter{
+public class UserResponseConverterImpl implements UserResponseConverter {
 
     @Override
     public UserResponse convert(Users source) {

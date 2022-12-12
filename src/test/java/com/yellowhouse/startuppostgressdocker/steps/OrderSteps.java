@@ -1,8 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.steps;
 
 import com.yellowhouse.startuppostgressdocker.ApiConfig;
-import com.yellowhouse.startuppostgressdocker.models.ClothesRequest;
-import com.yellowhouse.startuppostgressdocker.models.ClothesResponse;
 import com.yellowhouse.startuppostgressdocker.models.OrderRequest;
 import com.yellowhouse.startuppostgressdocker.models.OrderResponse;
 import io.qameta.allure.Step;
@@ -86,7 +84,7 @@ public class OrderSteps extends ApiConfig {
     public static List<String> getAllDeliveries(String date) {
         return List.of(given(requestSpecification)
                 .when()
-                .param("date",date)
+                .param("date", date)
                 .get(BASE_PATH_ORDERS + "/get-deliveries-by-date")
                 .then()
                 .log().all()

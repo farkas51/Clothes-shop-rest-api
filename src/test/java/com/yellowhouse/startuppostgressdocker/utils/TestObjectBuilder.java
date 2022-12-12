@@ -1,17 +1,15 @@
 package com.yellowhouse.startuppostgressdocker.utils;
 
-import com.yellowhouse.startuppostgressdocker.model.capsules.Capsule;
 import com.yellowhouse.startuppostgressdocker.models.CapsuleRequest;
 import com.yellowhouse.startuppostgressdocker.models.ClothesRequest;
 import com.yellowhouse.startuppostgressdocker.models.OrderRequest;
 import com.yellowhouse.startuppostgressdocker.models.UsersRequest;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class TestObjectBuilder {
 
-    public static CapsuleRequest getCapsuleCreationBody(){
+    public static CapsuleRequest getCapsuleCreationBody() {
         return CapsuleRequest.builder()
                 .type("api-test")
                 .size(1337)
@@ -21,7 +19,7 @@ public class TestObjectBuilder {
                 .build();
     }
 
-    public static CapsuleRequest getCapsuleCreationBody(String type,int size){
+    public static CapsuleRequest getCapsuleCreationBody(String type, int size) {
         return CapsuleRequest.builder()
                 .type(type)
                 .size(size)
@@ -31,7 +29,7 @@ public class TestObjectBuilder {
                 .build();
     }
 
-    public static ClothesRequest getClothesCreationBody(){
+    public static ClothesRequest getClothesCreationBody() {
         return ClothesRequest.builder()
                 .wear(1)
                 .type("api-test")
@@ -44,7 +42,7 @@ public class TestObjectBuilder {
                 .build();
     }
 
-    public static OrderRequest getOrderCreationBody(){
+    public static OrderRequest getOrderCreationBody() {
         return OrderRequest.builder()
                 .deliveryDateToClient("2022-12-12T17:15:17.262")
                 .deliveryDateBack("")
@@ -55,7 +53,7 @@ public class TestObjectBuilder {
                 .build();
     }
 
-    public static UsersRequest getUserCreationBody(){
+    public static UsersRequest getUserCreationBody() {
         return UsersRequest.builder()
                 .email("test@test.com")
                 .address("test")

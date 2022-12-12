@@ -10,5 +10,7 @@ public interface CapsulesRepository extends JpaRepository<Capsule, UUID> {
 
     List<Capsule> findByClothesInCapsula_id(UUID clothesId);
 
+    List<Capsule> getBySizeAndTypeAndClothesSize(int size, String type, String clothesSize);
+
     List<Capsule> getBySizeAndType(int size, String type);
 }

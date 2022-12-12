@@ -1,7 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.steps;
 
 import com.yellowhouse.startuppostgressdocker.ApiConfig;
-import com.yellowhouse.startuppostgressdocker.models.CapsulesResponse;
 import com.yellowhouse.startuppostgressdocker.models.ClothesRequest;
 import com.yellowhouse.startuppostgressdocker.models.ClothesResponse;
 import io.qameta.allure.Step;
@@ -10,7 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.requestSpecification;
 
 public class ClothesSteps extends ApiConfig {
 
@@ -59,7 +57,7 @@ public class ClothesSteps extends ApiConfig {
 
     @Step("Получение вещи по id")
     public static void deleteClothesById(UUID capsuleId) {
-            given(requestSpecification)
+        given(requestSpecification)
                 .when()
                 .delete(BASE_PATH_CLOTHES + "/" + capsuleId)
                 .then()

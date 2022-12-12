@@ -85,37 +85,37 @@ public class CapsulesServiceImpl implements CapsulesService {
     public Set<String> getSizesInCapsulaByTypeAndStyle(String size, String type) {
         List<Capsule> capsules = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
 
-        if(capsules.isEmpty()){
+        if (capsules.isEmpty()) {
             throw new ResourceNotFoundException("Капсулы с данными параметрами не найдены");
         }
 
         Set<String> sizes = new HashSet<>();
-        for (Capsule capsule:capsules
-             ) {
+        for (Capsule capsule : capsules
+        ) {
             if (capsule.getStatus().equals("NEW") || capsule.getStatus().equals("IN_STOCK"))
-                 sizes.add(capsule.getClothesSize());
+                sizes.add(capsule.getClothesSize());
         }
         log.info("Получены размеры в капсулах по стилю и размеру капсулы");
         return sizes;
     }
 
     @Override
-    public Capsule getRandomCapsula(String size, String type) throws ResourceNotFoundException {
-        List<Capsule> capsulesList = capsulesRepository.getBySizeAndType(Integer.parseInt(size), type);
+    public Capsule getRandomCapsula(String size, String type, String clothesSize) throws ResourceNotFoundException {
+        List<Capsule> capsulesList = capsulesRepository.getBySizeAndTypeAndClothesSize(Integer.parseInt(size), type, clothesSize);
 
-        if(capsulesList.isEmpty()){
+        if (capsulesList.isEmpty()) {
             throw new ResourceNotFoundException("Капсулы с данными параметрами не найдены");
         }
 
         List<Capsule> capsulesInValidStatus = new ArrayList<>();
-        for (Capsule capsule:capsulesList
-             ) {
+        for (Capsule capsule : capsulesList
+        ) {
             if (capsule.getStatus().equals("NEW") || capsule.getStatus().equals("IN_STOCK"))
                 capsulesInValidStatus.add(capsule);
         }
 
-        if(capsulesInValidStatus.isEmpty()){
-            throw new ResourceNotFoundException("Нет капсул в статусе NEW");
+        if (capsulesInValidStatus.isEmpty()) {
+            throw new ResourceNotFoundException("Нет капсул в статусе NEW или IN_STOCK");
         }
 
         Random r = new Random();
@@ -141,8 +141,7 @@ public class CapsulesServiceImpl implements CapsulesService {
                 } else if (field.getType().equals(LocalDateTime.class)) {
                     ReflectionUtils.setField(field, capsule.get(), LocalDateTime.parse(value.toString()));
 
-                }
-                else {
+                } else {
                     ReflectionUtils.setField(field, capsule.get(), value.toString());
                 }
             });

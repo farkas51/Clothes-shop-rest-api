@@ -1,16 +1,12 @@
 package com.yellowhouse.startuppostgressdocker;
 
-import com.yellowhouse.startuppostgressdocker.models.CapsulesResponse;
 import com.yellowhouse.startuppostgressdocker.models.ClothesResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static com.yellowhouse.startuppostgressdocker.steps.CapsulesSteps.createCapsule;
-import static com.yellowhouse.startuppostgressdocker.steps.CapsulesSteps.deleteCapsuleById;
 import static com.yellowhouse.startuppostgressdocker.steps.ClothesSteps.*;
-import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getCapsuleCreationBody;
 import static com.yellowhouse.startuppostgressdocker.utils.TestObjectBuilder.getClothesCreationBody;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
@@ -97,7 +93,7 @@ public class ClothesTest {
             "Тогда: СК200, вернулся список всех вещей в подходящем статусе")
 
     @Test
-    void testGetClothesInStatus(){
+    void testGetClothesInStatus() {
 
         ClothesResponse createdClothes = createClothes(getClothesCreationBody());
 
@@ -112,7 +108,6 @@ public class ClothesTest {
                 }
         );
     }
-
 
 
 }

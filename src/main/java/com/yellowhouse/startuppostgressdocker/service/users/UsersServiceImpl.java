@@ -1,7 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.service.users;
 
 import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundException;
-import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.model.users.Users;
 import com.yellowhouse.startuppostgressdocker.repository.users.UsersRepository;
 import lombok.extern.slf4j.Slf4j;

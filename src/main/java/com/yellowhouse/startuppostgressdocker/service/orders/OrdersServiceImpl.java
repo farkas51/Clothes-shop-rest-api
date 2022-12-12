@@ -4,7 +4,6 @@ import com.yellowhouse.startuppostgressdocker.controller.ResourceNotFoundExcepti
 import com.yellowhouse.startuppostgressdocker.model.orders.Order;
 import com.yellowhouse.startuppostgressdocker.repository.orders.OrdersRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
@@ -80,8 +79,7 @@ public class OrdersServiceImpl implements OrdersService {
                 } else if (field.getType().equals(LocalDateTime.class)) {
                     ReflectionUtils.setField(field, order.get(), LocalDateTime.parse(value.toString()));
 
-                }
-                else {
+                } else {
                     ReflectionUtils.setField(field, order.get(), value.toString());
                 }
             });
@@ -105,7 +103,7 @@ public class OrdersServiceImpl implements OrdersService {
         List<String> datesFromDb = ordersRepository.findDeliveryDateByDate();
         List<String> dates = new ArrayList<>();
         datesFromDb.removeIf(Objects::isNull);
-        for (String date:datesFromDb) {
+        for (String date : datesFromDb) {
             if (date.contains(dateOfDelivery))
                 dates.add(date);
         }

@@ -92,8 +92,7 @@ public class ClothesServiceImpl implements ClothesService {
                 } else if (field.getType().equals(LocalDateTime.class)) {
                     ReflectionUtils.setField(field, clothes.get(), LocalDateTime.parse(value.toString()));
 
-                }
-                else {
+                } else {
                     ReflectionUtils.setField(field, clothes.get(), value.toString());
                 }
             });

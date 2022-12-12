@@ -1,8 +1,6 @@
 package com.yellowhouse.startuppostgressdocker.steps;
 
 import com.yellowhouse.startuppostgressdocker.ApiConfig;
-import com.yellowhouse.startuppostgressdocker.models.OrderRequest;
-import com.yellowhouse.startuppostgressdocker.models.OrderResponse;
 import com.yellowhouse.startuppostgressdocker.models.UsersRequest;
 import com.yellowhouse.startuppostgressdocker.models.UsersResponse;
 import io.qameta.allure.Step;
@@ -72,7 +70,7 @@ public class UsersSteps extends ApiConfig {
     public static UsersResponse getUserByEmail(String email) {
         return given(requestSpecification)
                 .when()
-                .param("email",email)
+                .param("email", email)
                 .get(BASE_PATH_USERS + "/user-by-email")
                 .then()
                 .log().all()
@@ -87,7 +85,7 @@ public class UsersSteps extends ApiConfig {
     public static UsersResponse getUserByPhoneNumber(String phoneNumber) {
         return given(requestSpecification)
                 .when()
-                .param("phoneNumber",phoneNumber)
+                .param("phoneNumber", phoneNumber)
                 .get(BASE_PATH_USERS + "/user-by-phone-number")
                 .then()
                 .log().all()
@@ -99,11 +97,11 @@ public class UsersSteps extends ApiConfig {
     }
 
     @Step("Проверка регистрации пользователя")
-    public static boolean getUserRegistered(String email,String phoneNumber) {
+    public static boolean getUserRegistered(String email, String phoneNumber) {
         return given(requestSpecification)
                 .when()
-                .param("email",email)
-                .param("phoneNumber",phoneNumber)
+                .param("email", email)
+                .param("phoneNumber", phoneNumber)
                 .get(BASE_PATH_USERS + "/registered")
                 .then()
                 .log().all()

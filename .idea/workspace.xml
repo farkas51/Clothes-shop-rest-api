@@ -4,44 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added new endpoint for getting random capsula, and patch capsula">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/ApiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/BaseConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/CapsulesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/ClothesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/OrdersTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/UserTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/CapsuleRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/CapsulesResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/ClothesRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/ClothesResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/OrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/UsersRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/models/UsersResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/steps/CapsulesSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/steps/ClothesSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/steps/OrderSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/steps/UsersSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/utils/TestObjectBuilder.java" afterDir="false" />
+    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added api-tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/orders/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/orders/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/model/orders/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/orders/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/orders/OrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/orders/OrdersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/startup-postgress-docker-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/startup-postgress-docker-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/yellowhouse/startuppostgressdocker/StartupPostgressDockerApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +76,7 @@
       <recent name="com.yellowhouse.startuppostgressdocker" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StartupPostgressDockerApplication">
+  <component name="RunManager" selected="JUnit.CapsulesTest and 3 more">
     <configuration name="StartupPostgressDockerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yellowhouse.startuppostgressdocker.StartupPostgressDockerApplication" />
       <module name="startup-postgress-docker" />
@@ -214,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StartupPostgressDockerApplication" />
         <item itemvalue="JUnit.CapsulesTest and 3 more" />
+        <item itemvalue="Application.StartupPostgressDockerApplication" />
         <item itemvalue="JUnit.UserTests" />
         <item itemvalue="JUnit.UserTests and 3 more" />
         <item itemvalue="JUnit.UserTests.testGetUserRegisteredByOnlyPhoneNumberAndEmailNegative" />
@@ -357,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670760752766</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added api-tests">
+      <created>1670781102610</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670781102610</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,7 +359,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="added new endpoint" />
     <MESSAGE value="added new endpoint for getting random capsula, and patch capsula" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new endpoint for getting random capsula, and patch capsula" />
+    <MESSAGE value="added api-tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added api-tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -396,11 +372,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/converter/CapsulesResponseConverterImpl.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
