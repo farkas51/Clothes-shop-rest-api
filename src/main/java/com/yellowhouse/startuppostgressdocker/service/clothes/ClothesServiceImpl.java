@@ -74,6 +74,7 @@ public class ClothesServiceImpl implements ClothesService {
     @Override
     public List<Clothes> getClothesWhereCapsules(UUID capsuleId) {
         List<Clothes> clothes = clothesRepository.findByCapsules_id(capsuleId);
+        clothes.size();
         log.info("Получен список вещей которые входят в определённую капсулу");
         return clothes;
     }

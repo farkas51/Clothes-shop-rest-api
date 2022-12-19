@@ -8,6 +8,16 @@ services:
 #      - "8080:8080"
 #    depends_on:
 #      - postgresqldb
+#  allure:
+#    image: "frankescobar/allure-docker-service"
+#    environment:
+#      CHECK_RESULTS_EVERY_SECONDS: 1
+#      KEEP_HISTORY: 1
+#    ports:
+#      - "5050:5050"
+#    volumes:
+#      - ${PWD}/allure-results:/allure-results
+#      - ${PWD}/allure-reports:/default-reports
   postgresqldb:
     image: postgres
     ports:

@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="added api-tests">
+    <list default="true" id="d0e5466f-4d01-4766-a989-dcda8394206e" name="Changes" comment="last commit...maybe">
+      <change afterPath="$PROJECT_DIR$/src/main/java/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/controller/capsules/CapsulesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/repository/capsules/CapsulesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/capsules/CapsulesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yellowhouse/startuppostgressdocker/service/clothes/ClothesServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
+  <component name="ExportTestResults" exportFormat="Xml" outputFolder="$PROJECT_DIR$/allure-results" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -62,7 +61,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;io.qameta.allure.idea.settings.AppSettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -76,7 +75,7 @@
       <recent name="com.yellowhouse.startuppostgressdocker" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CapsulesTest and 3 more">
+  <component name="RunManager" selected="Application.StartupPostgressDockerApplication">
     <configuration name="StartupPostgressDockerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yellowhouse.startuppostgressdocker.StartupPostgressDockerApplication" />
       <module name="startup-postgress-docker" />
@@ -182,8 +181,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CapsulesTest and 3 more" />
         <item itemvalue="Application.StartupPostgressDockerApplication" />
+        <item itemvalue="JUnit.CapsulesTest and 3 more" />
         <item itemvalue="JUnit.UserTests" />
         <item itemvalue="JUnit.UserTests and 3 more" />
         <item itemvalue="JUnit.UserTests.testGetUserRegisteredByOnlyPhoneNumberAndEmailNegative" />
@@ -332,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670781102610</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="last commit...maybe">
+      <created>1670851044947</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670851044947</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,7 +366,8 @@
     <MESSAGE value="added new endpoint" />
     <MESSAGE value="added new endpoint for getting random capsula, and patch capsula" />
     <MESSAGE value="added api-tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added api-tests" />
+    <MESSAGE value="last commit...maybe" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit...maybe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,5 +389,9 @@
         <PinnedItemInfo parentTag="com.yellowhouse.startuppostgressdocker.model.capsules.Capsules" memberName="id" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
